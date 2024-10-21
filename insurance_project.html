@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Cost Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-4">Insurance Cost Prediction</h2>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" step="any" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex (1 for Male, 0 for Female):</label>
+                <input type="number" step="any" class="form-control" id="sex" name="sex" required>
+            </div>
+            <div class="form-group">
+                <label for="bmi">BMI:</label>
+                <input type="number" step="any" class="form-control" id="bmi" name="bmi" required>
+            </div>
+            <div class="form-group">
+                <label for="children">Number of Children:</label>
+                <input type="number" step="any" class="form-control" id="children" name="children" required>
+            </div>
+            <div class="form-group">
+                <label for="smoker">Smoker (1 for Yes, 0 for No):</label>
+                <input type="number" step="any" class="form-control" id="smoker" name="smoker" required>
+            </div>
+            <div class="form-group">
+                <label for="region">Region (1 to 4):</label>
+                <input type="number" step="any" class="form-control" id="region" name="region" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <h3 class="mt-4">{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
